@@ -1,0 +1,9 @@
+.message{
+    font-size: larger;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+    /* background-color: blue;
+    color: white; */
+}

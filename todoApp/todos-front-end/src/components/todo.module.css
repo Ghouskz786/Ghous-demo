@@ -1,0 +1,39 @@
+.todo{
+   max-width:60vw ;
+   padding: 7px;
+}
+.btnStyle button{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+.todo div{
+     text-align: left;
+}
+.btnStyle{
+    display: flex;
+}
+.btnStyle button{
+    width: 50%;
+    position: relative;
+    
+}
+.donebtn button{
+    
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+.donebtn{
+    display: flex;
+    display: inline-block;
+    justify-content: flex-start;
+   width: 100%;
+}
+.lineThrough{
+    text-decoration: line-through;
+}

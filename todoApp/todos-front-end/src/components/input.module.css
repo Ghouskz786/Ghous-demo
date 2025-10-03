@@ -1,0 +1,17 @@
+.input{
+    max-width: 60vw;
+    display: flex;
+}
+.input input,button{
+    width: 100%;
+}
+.input div{
+    display: flex;
+    align-items: center;
+}
+.input button{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
