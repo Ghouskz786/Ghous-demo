@@ -1,0 +1,17 @@
+<%- include('../partials/head',{title:'Page not found',currentPage:currentPage,isLoggedIn:isLoggedIn,user:user})%>
+<body class="overflow-x-hidden">
+<%- include('../partials/header')%>
+    <main
+      class="ml-[25vw] mt-[15vh] min-h-[35vh] flex flex-col justify-evenly max-w-[50vw] items-center shadow-2xl"
+    >
+      <h1 class="text-red-600 text-4xl">404</h1>
+      <p class="text-2xl sm:text-3xl text-center">Oops! Page Not Found</p>
+      <a
+        href="/"
+        class="bg-red-600 active:bg-red-400 hover:cursor-pointer p-[12px] text-white rounded-[10px]"
+        >return to home</a
+      >
+    </main>
+        <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

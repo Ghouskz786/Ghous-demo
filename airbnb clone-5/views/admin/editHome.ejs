@@ -1,0 +1,75 @@
+<%- include('../partials/head',{title:'Edit Home'}) %> 
+<body class="overflow-x-hidden">
+<%- include('../partials/header',{currentPage:currentPage,user:user,isLoggedIn:isLoggedIn})%>
+  <main
+      class="flex shadow-2xl min-h-[30vh] max-w-[60vw] flex-col justify-evenly items-center ml-[20vw] mt-[15vh] pb-[20px] p-[10px]"
+    >
+      <h1 class="font-bold text-2xl text-center sm:text-3xl">Register your home here</h1>
+      <form
+        action="/admin/edit-home"
+        method="POST"
+        class="flex flex-col w-[40vw] justify-evenly min-h-[45vh] gap-4 mt-[30px]"
+                enctype="multipart/form-data"
+      >
+              <!-- <input type="hidden" name="editIndex" value="<%= editData._id %>"/> -->
+
+        <input
+          type="text"
+          name="houseName"
+          value="<%= editData.houseName %>"
+          placeholder="Enter name here"
+          class="border-1 border-gray-300 border-solid min-h-9"
+        />
+        <input
+          type="text"
+          name="housePricePerNight"
+          value="<%= editData.price %>"
+          placeholder="Enter per night price"
+          class="border-1 border-gray-300 border-solid min-h-9"
+        />
+        <input
+          type="text"
+          name="houseLocation"
+          value="<%= editData.houseLocation %>"
+          placeholder="Enter house location"
+          class="border-1 border-gray-300 border-solid min-h-9"
+        />
+        <input
+          type="file"
+          name="houseImage"
+          multiple
+          accept="image/jpg,image/jpeg,image/png"
+          class="border-1 border-gray-300 border-solid min-h-9"
+        />
+          <textarea
+          type="text"
+          name="description"
+          value=""
+          placeholder="Enter Description here"
+          class="border-1 border-gray-300 border-solid min-h-9"
+        ><%= editData.description %></textarea>
+        <input
+          type="text"
+          name="houseRating"
+          value="<%= editData.rating %>"
+          placeholder="Enter Rating between 1 - 5"
+          class="border-1 border-gray-300 border-solid min-h-9"
+        />
+                <input
+          type="file"
+          name="houseRules"
+          multiple
+          accept="application/pdf"
+          class="border-1 border-gray-300 border-solid min-h-9"
+        />
+<input type="hidden" name="id" value="<%=editData._id%>">
+        <button
+          type="submit"
+          class="bg-red-600 p-[8px] text-white text-center active:bg-red-400 hover:cursor-pointer"
+        >
+          Update
+        </button>
+      </form>
+    </main>
+</body>
+</html>

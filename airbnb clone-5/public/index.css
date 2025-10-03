@@ -1,0 +1,13 @@
+@media (max-width: 412px) {
+  .imgStyle {
+    width: 90%;
+    align-self: center;
+  }
+  .mainStyle {
+    justify-content: center;
+    flex-shrink: 0;
+  }
+}
+.hide {
+  display: none;
+}

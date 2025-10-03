@@ -1,0 +1,59 @@
+<header
+  class="min-h-[80px] bg-red-600 flex pl-[20px] w-[100vw] text-white items-center"
+>
+  <ul class="flex gap-5 items-center">
+    <li class="hover:text-slate-400 text-2xl sm:text-4xl">
+      <a href="/">airbnb</a>
+    </li>
+    <% if(currentPage==='home') { %>
+    <li class="hover:text-slate-400 text-2xl sm:text-4xl">
+      <input type="search" placeholder="enter to search" class="searchEngine" />
+    </li>
+    <%}%> <% if(isLoggedIn){ %> <%if(user==='guest'){%>
+    <li
+      class="hover:text-slate-400 ml-8 <%= currentPage==='booking'?'bg-red-400':'bg-red-600' %>"
+    >
+      <a href="/booking">Booking</a>
+    </li>
+    <li
+      class="hover:text-slate-400 <%= currentPage==='favourite'?'bg-red-400':'bg-red-600' %>"
+    >
+      <a href="/favourite">Favourite</a>
+    </li>
+    <li
+      class="hover:text-slate-400 <%= currentPage==='home list'?'bg-red-400':'bg-red-600' %>"
+    >
+      <a href="/home-list">Home list</a>
+    </li>
+    <%}else{%>
+    <li
+      class="hover:text-slate-400 ml-8 <%= currentPage==='host home list'?'bg-red-400':'bg-red-600' %>"
+    >
+      <a href="/admin/host-home-list">Host home list</a>
+    </li>
+    <li
+      class="hover:text-slate-400 <%= currentPage==='add-home'?'bg-red-400':'bg-red-600' %>"
+    >
+      <a href="/admin/add-home">Add Home</a>
+    </li>
+    <%}%>
+    <li class="hover:text-slate-400 'bg-red-600'">
+      <form action="/logout" method="post">
+        <button type="submit">LogOut</button>
+      </form>
+    </li>
+    <% }else{ %>
+
+    <li
+      class="hover:text-slate-400 <%= currentPage==='login'?'bg-red-400':'bg-red-600' %>"
+    >
+      <a href="/login">Login</a>
+    </li>
+    <li
+      class="hover:text-slate-400 <%= currentPage==='signup'?'bg-red-400':'bg-red-600' %>"
+    >
+      <a href="/signup">signUp</a>
+    </li>
+    <%}%>
+  </ul>
+</header>

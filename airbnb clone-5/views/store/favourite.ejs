@@ -1,0 +1,52 @@
+<%- include('../partials/head',{title:'favourite'}) %> 
+<body class="overflow-x-hidden">
+
+<%- include('../partials/header',{currentPage:currentPage,isLoggedIn:isLoggedIn ,user:user})%>
+<%if(!bodyObj){ %><div class="flex flex-col items-center mt-[20vh]">
+<h1 class="text-5xl text-red-600 font-bold pb-[30px]">Favourite</h1>
+<h1 class="text-2xl">Add your favourites here</h1>
+</div><%}else{%>
+<main class="mt-[5vh] flex flex-col flex-wrap md:flex-col w-[100vw] mb-[10vh]">
+  <h1 class="text-4xl text-center text-red-600">Here are your favourite homes</h1>
+  <ul
+    class="flex gap-7 mt-[30px] justify-center w-[100%] relative z-10 mainStyle"
+    style="flex-wrap: wrap"
+  >
+    <% bodyObj.forEach((homes)=>{ %>
+    <li class="flex shadow-2xl min-h-[40vh] flex-col p-[20px] imgStyle z-10">
+      <div class="flex">
+
+      <img
+        src="/<%=homes.imageUrl%>"
+        width="270px"
+        alt="house image"
+        class="rounded-2xl imgStyle"
+      />
+      <i class="fa-solid fa-thumbs-up relative right-0"></i>
+      </div>
+              
+      <div class="flex flex-col">
+        <div class="flex justify-between items-center">
+          <h1 class="text-2xl"><%= homes.houseName %></h1>
+        </div>
+        <p><%= homes.houseLocation %></p>
+        <div class="flex justify-between">
+          <p class="text-red-600 font-bold">Rs<%= homes.price %>/night</p>
+          <div><i class="fa-solid fa-star"></i> 5/<%=homes.rating%></div>
+        </div>
+        <div class="flex justify-between pt-2">
+          <button class="cursor-pointer bg-green-400 px-2.5 w-fit">Book</button>
+                <form action="/favourite/delete" method="POST">
+        <input type="hidden" name="delFavId" value="<%= homes._id %>">
+        <button type="submit" class="cursor-pointer">remove favourite</button>
+      </form>
+        </div>
+      </div>
+
+    </li>
+    <% }) %>
+  </ul>
+</main><%}%>
+<%- include('../partials/footer')%>
+</body>
+</html>

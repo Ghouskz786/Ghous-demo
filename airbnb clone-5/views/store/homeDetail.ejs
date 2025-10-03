@@ -1,0 +1,47 @@
+<%- include('../partials/head',{title:'Home Details'}) %> 
+<body class="overflow-x-hidden">
+<%- include('../partials/header',{currentPage:currentPage,isLoggedIn:isLoggedIn,user:user})%>
+
+<main class="mt-[5vh] flex flex-col flex-wrap md:flex-col w-[100vw] mb-[10vh]">
+  <ul
+    class="flex gap-7 mt-[30px] justify-center w-[100%] relative z-10 mainStyle"
+    style="flex-wrap: wrap"
+  >
+    <li class="flex shadow-2xl min-h-[55vh] w-[80vw] p-[20px] imgStyle z-10">
+<div>
+      <img
+        src="/<%=bodyObj.imageUrl%>"
+        heigth="100px"
+        alt="house image"
+        class="rounded-2xl imgStyle"
+      />
+      </div >
+      <div class='ml-12 w-[100%] h-[100%] '>
+              <div class="flex flex-col  mb-4 pb-1 border-b-1 border-b-slate-400"> 
+                <p class=" font-bold pr-3.5 text-2xl">Title</p>
+          <p><%= bodyObj.houseName %></p>
+              </div>
+      <div class="flex flex-col  mb-4 pb-1 border-b-1 border-b-slate-400">  <p class="text-2xl font-bold pr-3.5">Location</p><p ><%= bodyObj.houseLocation %></p></div>
+       <div class="flex flex-col  mb-4 pb-1 border-b-1 border-b-slate-400"> <p class="text-2xl font-bold pr-3.5">Description</p> <p><%= bodyObj.description%></p></div>
+       <div class="flex flex-col  mb-4 pb-1 border-b-1 border-b-slate-400"> 
+          <p class="text-green-600 font-bold">Rs<%= bodyObj.perNight %>/night</p>
+          <div><i class="fa-solid fa-star"></i> 5/<%=bodyObj.rating%></div>
+        </div>
+        <div class="flex justify-between h-[50px] pt-2">
+          <!-- <button class="cursor-pointer bg-green-400 px-2.5 w-fit">Book</button> -->
+<%- include('../partials/favouriteForm',{id:bodyObj.id}) %>
+            <a
+            href="/"
+            class="cursor-pointer px-2.5 ml-[100px] w-fit bg-red-600 flex items-center"
+          >
+            Back
+          </a>
+      </div>
+              </div>
+    </li>
+  </ul>
+</main>
+
+<%- include('../partials/footer')%>
+</body>
+</html>

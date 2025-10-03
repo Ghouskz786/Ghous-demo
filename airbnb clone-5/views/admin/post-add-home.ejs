@@ -1,0 +1,19 @@
+<%- include('../partials/head',{title:'home added',})%>
+<body class="overflow-x-hidden">
+<%- include('../partials/header',{currentPage:currentPage,user:user,isLoggedIn:isLoggedIn})%>
+
+    <main
+      class="flex flex-col items-center justify-evenly max-w-[50vw] shadow-2xl min-h-[30vh] ml-[25vw] mt-[15vh]"
+    >
+      <h1 class="text-4xl">Home Registered Successfully</h1>
+      <p>Your home has been added to our list</p>
+      <a
+        href="/"
+        class="bg-red-600 p-[8px] text-white text-center active:bg-red-400 min-w-[30vw] hover:cursor-pointer"
+      >
+        Go to home
+      </a>
+    </main>
+        <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

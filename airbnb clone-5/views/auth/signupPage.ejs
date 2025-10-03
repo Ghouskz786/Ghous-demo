@@ -1,0 +1,89 @@
+<%- include('../partials/head',{title:'signUp'})%>
+
+  <body>
+<%- include('../partials/header',{currentPage:currentPage,user:user,isLoggedIn})%>
+    <main
+      class="flex shadow-2xl min-h-[30vh] max-w-[60vw] flex-col justify-evenly items-center ml-[20%] mt-[7vh] pb-[20px] p-[10px]"
+    >
+      <h1 class="font-bold text-2xl text-center sm:text-3xl">Register YourSelf</h1>
+      <form
+        action="/signup"
+        method="POST"
+        class="flex flex-col w-[40vw] justify-evenly min-h-[45vh] gap-4 mt-[30px]"
+      >
+        <input
+          type="text"
+          name="firstName"
+          placeholder="Enter first name here"
+          class="border-1 border-gray-300 border-solid min-h-9"
+          value="<%= typeof oldInput!==undefined ? oldInput.firstName:'' %>"
+          required
+        />
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Enter last name here"
+                    value="<%=typeof oldInput!==undefined ? oldInput.lastName : ''%>"
+          class="border-1 border-gray-300 border-solid min-h-9"
+        />
+        <input
+          type="email"
+          name="userEmail"
+          placeholder="Enter your email here"
+                    value="<%=typeof oldInput!==undefined ? oldInput.userEmail : ''%>"
+          class="border-1 border-gray-300 border-solid min-h-9"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter password here"
+          class="border-1 border-gray-300 border-solid min-h-9"
+          required
+        />
+                <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm password here"
+          class="border-1 border-gray-300 border-solid min-h-9"
+          required
+        />
+<div class="flex">
+    <div class="pr-[20px]">Select User Type :</div>
+        <label for="hostpresent">host
+        <input
+          type="radio"
+          name="userType"
+          value="host"
+          id="hostpresent"
+          checked=' <%= oldInput.userType === "host" %>'
+        />
+        </label>
+                <label for="userpresent" class="ml-4">user
+                <input
+          type="radio"
+          name="userType"
+          value="guest"
+          id="userpresent"
+          checked='<%= oldInput.userType === "guest" %>'
+        />
+</label>
+
+</div>
+<label for="conditionBox"><input type="checkbox" name="conditons" id="conditionBox" value="checked " class="mr-4" required>Terms and Conditions</label>
+<ul class="text-red-600">
+  <% typeof errorArray !== undefined && errorArray.map((msg)=>{%>
+    <li><%=msg%></li>
+  <%})%>
+  </ul>
+        <button
+          type="submit"
+          class="bg-red-600 p-[8px] text-white text-center active:bg-red-400 hover:cursor-pointer"
+        >
+          SignUp
+        </button>
+      </form>
+    </main>
+        <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

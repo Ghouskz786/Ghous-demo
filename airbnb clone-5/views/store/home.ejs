@@ -1,0 +1,8 @@
+<%- include('../partials/head',{title:'airbnb home'})%>
+
+<body class="overflow-x-hidden">
+    <%- include('../partials/header.ejs',{currentPage:currentPage,isLoggedIn:isLoggedIn,user:user})%>
+    <%- include('../partials/mainBody.ejs',{bodyObj:bodyObj}) %>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
