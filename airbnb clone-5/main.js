@@ -15,7 +15,7 @@ const { adminRouter } = require("./routes/admin");
 const storeRouter = require("./routes/store");
 const { notFoundController } = require("./controllers/storeController");
 const authRoute = require("./routes/authRouter");
-const url = "mongodb://localhost:27017/airbnb";
+const url = "";
 
 const port = 3000;
 const app = express();
@@ -23,7 +23,7 @@ app.use(express.static(path.join(Dir, "public")));
 app.set("view engine", "ejs");
 // app.set("view", "views*/");
 const store = new mongodbStore({
-  url: "mongodb://localhost:27017//airbnb/sessions",
+  url: "",
 });
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -66,7 +66,7 @@ app.use(express.urlencoded());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(
   session({
-    secret: "learning coding",
+    secret: "",
     resave: false,
     saveUninitialized: false,
     store: store,
