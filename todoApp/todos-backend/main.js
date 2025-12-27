@@ -6,7 +6,7 @@ const cors = require("cors");
 const todosList = require("./Model/todosModel");
 const todosRouter = require("./routes/todosRoute");
 
-const BaseUrl = "mongodb://localhost:27017/todos";
+const BaseUrl = "";
 const app = express();
 const port = 3000;
 app.use(express.urlencoded());
